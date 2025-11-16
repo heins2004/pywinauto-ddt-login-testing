@@ -1,12 +1,3 @@
-<p align="center">
-  <img src="https://i.imgur.com/WdkSQp0.png" alt="pywinauto DDT Project Banner" width="100%">
-</p>
-
-<h1 align="center">Desktop Application Data-Driven Testing using pywinauto</h1>
-
-<p align="center">
-  Automating a Login Desktop Application using Python, pywinauto, and CSV-based Data Driven Testing  
-</p>
 
 # pywinauto-ddt-login-testing
 Desktop Application Data-Driven Testing (DDT) using pywinauto with a custom Login GUI.
