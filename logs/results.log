@@ -1,0 +1,5 @@
+
+2025-11-18 06:56:57.743256 | admin | Expected=Success | Actual=Success | PASS
+2025-11-18 06:57:02.181939 | user1 | Expected=Fail | Actual=Fail | PASS
+2025-11-18 06:57:05.982345 | guest | Expected=Success | Actual=Fail | FAIL
+2025-11-18 06:57:10.456789 | user2 | Expected=Success | Actual=Success | PASS

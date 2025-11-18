@@ -1,0 +1,7 @@
+Username,Password,Expected
+admin,12345,Success
+user1,wrong,Fail
+test,99999,Invalid Credentials
+xyz,777,Invalid Credentials
+guest,guest123,Invalid Credentials
+a,34,Success
