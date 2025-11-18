@@ -1,0 +1,185 @@
+===============================
+ INSTALLATION & SETUP GUIDE
+===============================
+
+This document explains how to:
+
+1. Install required packages  
+2. Convert the Python app into an EXE (Windows application)  
+3. Run the EXE or Python version  
+4. Run the automation tests  
+5. Troubleshoot common errors  
+
+
+-----------------------------------------
+1. REQUIREMENTS
+-----------------------------------------
+Make sure the system has:
+
+• Windows 10 or higher  
+• Python 3.10+ installed  
+• PIP installed  
+• Internet connection (for first installation only)  
+
+
+-----------------------------------------
+2. INSTALL PYTHON DEPENDENCIES
+-----------------------------------------
+
+Open PowerShell inside the project folder and run:
+
+    pip install -r requirements.txt
+
+If you don't have a requirements.txt, install manually:
+
+    pip install pywinauto
+    pip install pillow
+
+
+-----------------------------------------
+3. CONVERT THE PY FILE INTO EXE
+-----------------------------------------
+
+First install PyInstaller:
+
+    pip install pyinstaller
+
+Check installation:
+
+    pyinstaller --version
+
+If PyInstaller is not detected, use this (always works):
+
+    python -m PyInstaller --version
+
+
+-----------------------------------------
+4. BUILD YOUR EXE
+-----------------------------------------
+
+From the root project folder, run:
+
+    python -m PyInstaller --noconsole --onefile app/login_app.py
+
+Explanation:  
+• --noconsole → hides the black terminal window  
+• --onefile → creates a single portable EXE  
+• app/login_app.py → replace with your script if different  
+
+
+-----------------------------------------
+5. WHERE THE EXE FILE WILL APPEAR
+-----------------------------------------
+
+After building, open:
+
+    dist/login_app.exe
+
+This is the executable you can share with anyone.  
+
+
+-----------------------------------------
+6. RUNNING THE APPLICATION
+-----------------------------------------
+
+If using the Python script:
+
+    python app/login_app.py
+
+If using the EXE:
+
+    dist/login_app.exe
+
+
+-----------------------------------------
+7. CLEAN BUILD FILES (OPTIONAL)
+-----------------------------------------
+
+To clean the build output, delete the following folders/files:
+
+• build/  
+• __pycache__/  
+• login_app.spec  
+
+
+-----------------------------------------
+8. COMMON ERRORS & FIXES
+-----------------------------------------
+
+ERROR: CommandNotFoundException (pyinstaller not found)  
+FIX:
+
+    python -m pip install pyinstaller
+    python -m PyInstaller ...
+
+-----------------------------------------
+
+ERROR: App closes immediately after launch  
+FIX:  
+Remove "root.destroy()" or add a delay in your GUI.
+
+-----------------------------------------
+
+ERROR: EXE missing images or files  
+FIX (example):
+
+    python -m PyInstaller --add-data "assets;assets" --onefile app/login_app.py
+
+
+------------------------------------
+9. PROJECT FOLDER STRUCTURE 
+------------------------------------
+
+Your folder must look like this:
+
+    pywinauto_ddt_framework/
+    ├── app/
+    │   └── login_app.py  (or your EXE)
+    ├── data/
+    │   └── data.csv
+    ├── tests/
+    │   └── test_login_ddt.py
+    ├── logs/           (auto-created)
+    ├── screenshots/    (auto-created)
+    ├── reports/        (auto-created)
+    ├── README.md
+    └── installation.txt
+
+
+-------------------------------------
+10. HOW TO RUN THE AUTOMATION TESTS
+-------------------------------------
+
+STEP 1: Navigate to the project folder:
+
+    cd pywinauto_ddt_framework
+
+STEP 2: Run the test script:
+
+    python tests/test_login_ddt.py
+
+The test will automatically:
+
+• Read CSV test data  
+• Launch the app  
+• Perform login attempts  
+• Capture screenshots  
+• Write logs  
+• Generate an HTML test report  
+
+
+------------------------------------
+11. WHERE TO CHECK TEST OUTPUT
+------------------------------------
+
+• Logs:  
+      logs/results.log
+
+• HTML Report:  
+      reports/report.html  
+  → Open report.html in any browser.
+
+
+------------------------------------
+END OF FILE
+------------------------------------
